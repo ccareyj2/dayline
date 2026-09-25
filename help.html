@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+<title>Dayline — Setup guide</title>
+<meta name="theme-color" content="#f6f4ef" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e121c" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<style>
+:root{--bg:#f6f4ef;--surface:#fff;--surface-2:#f0ede6;--text:#1a1d29;--text-2:#464b5c;--muted:#767b8b;--border:#e5e1d8;--accent:#e4572e;--accent-text:#bf3f18;--code:#efe9df;color-scheme:light dark}
+@media (prefers-color-scheme:dark){:root{--bg:#0e121c;--surface:#171c28;--surface-2:#1e2432;--text:#eceef3;--text-2:#bcc2cf;--muted:#8b92a4;--border:#283042;--accent:#ff7a50;--accent-text:#ff9a78;--code:#1e2432}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",system-ui,Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+.bar{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 94%,transparent);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:calc(env(safe-area-inset-top,0px) + 10px) 16px 10px}
+.bar a{color:var(--accent-text);font-weight:650;text-decoration:none;font-size:16px}
+main{max-width:720px;margin:0 auto;padding:8px 18px calc(env(safe-area-inset-bottom,0px) + 48px)}
+h1{font-size:34px;line-height:1.1;letter-spacing:-.02em;margin:22px 0 8px}
+h2{font-size:21px;line-height:1.25;letter-spacing:-.01em;margin:34px 0 10px;scroll-margin-top:70px}
+h3{font-size:17px;margin:22px 0 8px}
+p,li{color:var(--text-2)}
+strong{color:var(--text)}
+a{color:var(--accent-text)}
+ul,ol{padding-left:22px}
+li{margin:6px 0}
+li>ul{margin:4px 0}
+hr{border:0;border-top:1px solid var(--border);margin:30px 0}
+code{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:.88em;background:var(--code);color:var(--text);padding:1px 6px;border-radius:6px;word-break:break-word}
+pre{background:var(--code);border-radius:12px;padding:12px 14px;overflow-x:auto}
+pre code{background:none;padding:0;font-size:13.5px;word-break:normal}
+blockquote{margin:14px 0;padding:10px 14px;background:var(--surface);border-left:4px solid var(--accent);border-radius:10px}
+blockquote p{margin:4px 0}
+.table-wrap{overflow-x:auto;margin:12px 0;border-radius:12px;background:var(--surface);box-shadow:0 1px 2px rgba(0,0,0,.05),0 4px 14px rgba(0,0,0,.05)}
+table{border-collapse:collapse;width:100%;font-size:14.5px}
+th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--border)}
+th{font-size:12.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+tr:last-child td{border-bottom:0}
+td{color:var(--text-2)}
+a[id]:empty{display:block;scroll-margin-top:72px}
+</style>
+</head>
+<body>
+<div class="bar"><a href="./">‹ Back to Dayline</a></div>
+<main>
+<h1>Dayline</h1>
+<p>Your to-dos and your calendar on one timeline. Dayline installs on your iPhone like an app, works offline, and can show your Google Calendar and Outlook events next to your tasks.</p>
+<p><strong>What&#39;s inside</strong></p>
+<ul>
+<li><strong>Quick add in plain English</strong> — type <code>Dentist fri 9am for 1h #personal !high</code> and the date, time, length, list and priority are filled in for you.</li>
+<li><strong>Today · Schedule · Upcoming · Lists</strong> — Today shows what&#39;s due and what&#39;s next. Schedule is a timeline of your day, with your meetings and time-blocked tasks side by side. Upcoming covers the next two weeks.</li>
+<li><strong>Auto-plan</strong> — one tap drops today&#39;s unscheduled tasks into the free time between your meetings, inside your work hours.</li>
+<li><strong>Drag to reschedule</strong> — long-press a task block on the timeline and drag it.</li>
+<li><strong>Recurring tasks, subtasks, reminders, notes, tags, priorities.</strong></li>
+<li><strong>Google Calendar + Outlook</strong> — see your events, send a task to your calendar in one tap, and keep it in sync in both directions.</li>
+<li><strong>Private and offline</strong> — tasks are stored on your device. Nothing goes to a server.</li>
+</ul>
+<hr>
+<h2 id="step-1-put-dayline-online-free-about-10-">Step 1 — Put Dayline online (free, about 10 minutes)</h2>
+<p>GitHub Pages hosts Dayline for free at an <code>https://</code> address, which is what lets your iPhone install it and lets Google and Microsoft sign you in.</p>
+<ol>
+<li>Sign in to (or create a free account at) <a target="_blank" rel="noopener" href="https://github.com">github.com</a>.</li>
+<li>Click <strong>+</strong> (top right) → <strong>New repository</strong>. Name it <code>dayline</code>, choose <strong>Public</strong>, then <strong>Create repository</strong>.</li>
+<li>On the new repository page, click <strong>uploading an existing file</strong>. Unzip <code>dayline.zip</code> on your Mac, open the <code>dayline</code> folder, select <strong>everything inside it</strong> (<code>index.html</code>, <code>css</code>, <code>js</code>, <code>icons</code>, …) and drag it onto the page. When the upload finishes, click <strong>Commit changes</strong>.
+<em>Drag the contents, not the folder itself, so <code>index.html</code> is at the top level of the repository.</em></li>
+<li>Go to <strong>Settings → Pages</strong>. Under <strong>Build and deployment</strong>, set <strong>Source</strong> to <strong>Deploy from a branch</strong>, then <strong>Branch</strong> to <code>main</code> and <code>/ (root)</code>. Click <strong>Save</strong>.</li>
+<li>After a minute, the Pages screen shows <strong>Your site is live at <code>https://YOUR-USERNAME.github.io/dayline/</code></strong>. That&#39;s your app&#39;s address.</li>
+</ol>
+<blockquote>
+<p>Free GitHub Pages requires a public repository, so the <em>code</em> is public. Your <em>tasks</em> are not — they live only on your devices.
+If you named the repository something other than <code>dayline</code>, use that name wherever this guide says <code>dayline</code>.</p>
+</blockquote>
+<h2 id="step-2-install-it-on-your-iphone">Step 2 — Install it on your iPhone</h2>
+<ol>
+<li>Open your app address in <strong>Safari</strong>.</li>
+<li>Tap <strong>···</strong> (bottom right), then <strong>Share</strong>.</li>
+<li>Scroll down and tap <strong>Add to Home Screen</strong>.</li>
+<li>Keep <strong>Open as Web App</strong> turned on, then tap <strong>Add</strong>.</li>
+</ol>
+<p>From now on, open Dayline from its icon. It runs full-screen and works offline.</p>
+<p><a id="google"></a></p>
+<h2 id="step-3-optional-connect-google-calendar">Step 3 (optional) — Connect Google Calendar</h2>
+<p>About 15 minutes, once. After this, your Google events appear on Today and Schedule, and tasks you add to Google Calendar stay in sync.</p>
+<ol>
+<li><p>Go to <a target="_blank" rel="noopener" href="https://console.cloud.google.com">console.cloud.google.com</a> and sign in with the Google account whose calendar you use.</p>
+</li>
+<li><p><strong>Create a project:</strong> click the project picker at the top → <strong>New project</strong> → name it <code>Dayline</code> → <strong>Create</strong>. Make sure <code>Dayline</code> is selected at the top.</p>
+</li>
+<li><p><strong>Turn on the Calendar API:</strong> search the console for <strong>Google Calendar API</strong> → <strong>Enable</strong>.</p>
+</li>
+<li><p><strong>Set up the sign-in screen:</strong> search for <strong>Google Auth Platform</strong> (older menus call it <em>APIs &amp; Services → OAuth consent screen</em>) → <strong>Get started</strong>.</p>
+<ul>
+<li>App name <code>Dayline</code>, support email: yours → <strong>Next</strong></li>
+<li>Audience: <strong>External</strong> → <strong>Next</strong></li>
+<li>Contact information: your email → <strong>Next</strong> → agree to the policy → <strong>Create</strong></li>
+</ul>
+</li>
+<li><p><strong>Add yourself as a tester:</strong> <strong>Audience</strong> → <strong>Test users</strong> → <strong>Add users</strong> → your Gmail address → <strong>Save</strong>.</p>
+</li>
+<li><p><strong>Declare the permissions:</strong> <strong>Data Access</strong> → <strong>Add or remove scopes</strong> → under <em>Manually add scopes</em> paste both lines below → <strong>Add to table</strong> → <strong>Update</strong> → <strong>Save</strong>.</p>
+<pre><code>https://www.googleapis.com/auth/calendar.events
+https://www.googleapis.com/auth/calendar.calendarlist.readonly
+</code></pre>
+</li>
+<li><p><strong>Create the client:</strong> <strong>Clients</strong> → <strong>Create client</strong></p>
+<ul>
+<li>Application type: <strong>Web application</strong>, name: <code>Dayline</code></li>
+<li><strong>Authorized JavaScript origins:</strong> <code>https://YOUR-USERNAME.github.io</code></li>
+<li><strong>Authorized redirect URIs:</strong> <code>https://YOUR-USERNAME.github.io/dayline/</code> — exactly, including the final <code>/</code>. Dayline shows this address under <strong>Settings → Calendars</strong>, with a copy button.</li>
+<li>Click <strong>Create</strong> and copy the <strong>Client ID</strong> (it ends in <code>.apps.googleusercontent.com</code>). You don&#39;t need the client secret.</li>
+</ul>
+</li>
+<li><p><strong>Give Dayline the Client ID</strong>, either:</p>
+<ul>
+<li>on your phone: <strong>Settings → Calendars → Google Calendar</strong> → paste it → <strong>Save</strong>; or</li>
+<li>once for every device: in your GitHub repository, open <code>config.js</code>, click the pencil icon, paste the ID between the quotes after <code>googleClientId</code>, and click <strong>Commit changes</strong>.</li>
+</ul>
+</li>
+<li><p>In Dayline, tap <strong>Connect Google Calendar</strong> and choose your account. Google will say <strong>&quot;Google hasn&#39;t verified this app&quot;</strong> — that&#39;s expected for an app only you use. Tap <strong>Continue</strong>, allow calendar access, and you&#39;ll land back in Dayline.</p>
+</li>
+</ol>
+<p><strong>Good to know:</strong> Google&#39;s browser sign-in lasts one hour. Dayline renews it when you open the app, so you may see a brief flash while it does. If Google ever asks you to approve access again, just continue.</p>
+<p><a id="outlook"></a></p>
+<h2 id="step-4-optional-connect-outlook-your-mic">Step 4 (optional) — Connect Outlook (your Microsoft 365 work account)</h2>
+<p>About 15 minutes, once. It may also need a one-click approval from your Microsoft 365 administrator.</p>
+<ol>
+<li>Go to <a target="_blank" rel="noopener" href="https://entra.microsoft.com">entra.microsoft.com</a> and sign in with your work account.</li>
+<li><strong>Register the app:</strong> <strong>Entra ID → App registrations → New registration</strong><ul>
+<li>Name: <code>Dayline</code></li>
+<li>Supported account types: <strong>Single tenant only</strong> (your organization)</li>
+<li>Redirect URI: choose <strong>Single-page application (SPA)</strong> and enter <code>https://YOUR-USERNAME.github.io/dayline/</code></li>
+<li>Click <strong>Register</strong>.</li>
+</ul>
+</li>
+<li>On the <strong>Overview</strong> page, copy the <strong>Application (client) ID</strong> and the <strong>Directory (tenant) ID</strong>.</li>
+<li><strong>Add calendar permission:</strong> <strong>API permissions → Add a permission → Microsoft Graph → Delegated permissions</strong> → search <code>Calendars.ReadWrite</code> → tick it → <strong>Add permissions</strong>.</li>
+<li><strong>Approve it:</strong> click <strong>Grant admin consent for (your organization)</strong> → <strong>Yes</strong>. Under Microsoft&#39;s current default settings, an administrator has to approve any app that reads calendars. If the button is greyed out, you&#39;re not an admin — ask whoever manages your Microsoft 365 to click it for the app named <em>Dayline</em>.</li>
+<li><strong>Give Dayline the IDs:</strong> <strong>Settings → Calendars → Outlook</strong> → paste the Application (client) ID and the Directory (tenant) ID → <strong>Save</strong>. You can also put them in <code>config.js</code> as <code>microsoftClientId</code> and <code>microsoftTenant</code>.</li>
+<li>Tap <strong>Connect Outlook</strong> and sign in.</li>
+</ol>
+<p>If <strong>New registration</strong> says you don&#39;t have access, your organization restricts app registrations. Ask your admin to do steps 2–5 and send you the two IDs.</p>
+<p><strong>Good to know:</strong> Microsoft keeps a browser-app sign-in for 24 hours. Dayline renews it quietly when you open the app.</p>
+<hr>
+<h2 id="using-dayline">Using Dayline</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Where</th>
+<th>What you can do</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>+ button</strong></td>
+<td>Quick add. Recognized words appear as chips under the text box. Tap a chip&#39;s × to keep that word in the title instead.</td>
+</tr>
+<tr>
+<td><strong>Today</strong></td>
+<td>Overdue and today&#39;s tasks, your next meeting or time block, and today&#39;s events. <strong>Move to today</strong> clears the overdue pile in one tap.</td>
+</tr>
+<tr>
+<td><strong>Schedule</strong></td>
+<td>A timeline of one day. <strong>To plan</strong> lists tasks without a time: tap <strong>Plan</strong> for suggested open slots, or <strong>Auto-plan</strong> to fill your free time. Long-press a task block to drag it. Tap an empty spot to add a task at that time. Swipe the week strip to change weeks.</td>
+</tr>
+<tr>
+<td><strong>Upcoming</strong></td>
+<td>The next 14 days with events, then later tasks by month.</td>
+</tr>
+<tr>
+<td><strong>Lists</strong></td>
+<td>Inbox plus your own lists. Typing <code>#listname</code> in quick add files a task there.</td>
+</tr>
+<tr>
+<td><strong>Tap any task</strong></td>
+<td>Date, time, length, repeat, reminder, priority, list, tags, subtasks, notes, and <strong>Calendar</strong>: add to Google Calendar, Outlook, or an .ics file.</td>
+</tr>
+</tbody></table></div>
+<p><strong>Quick-add examples</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Type this</th>
+<th>You get</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Dentist fri 9am</code></td>
+<td>Friday at 9:00 AM</td>
+</tr>
+<tr>
+<td><code>Call Ana tomorrow 3-4pm</code></td>
+<td>Tomorrow, 3:00 PM for 1 hour</td>
+</tr>
+<tr>
+<td><code>Write aims for 90m</code></td>
+<td>A 90-minute block (plan it later)</td>
+</tr>
+<tr>
+<td><code>Stretch every weekday 7am</code></td>
+<td>Repeats Monday–Friday</td>
+</tr>
+<tr>
+<td><code>Team sync every mon, wed</code></td>
+<td>Repeats Mondays and Wednesdays</td>
+</tr>
+<tr>
+<td><code>Grant report due 10/15</code></td>
+<td>October 15</td>
+</tr>
+<tr>
+<td><code>Book flights in 2 weeks</code></td>
+<td>Two weeks from today</td>
+</tr>
+<tr>
+<td><code>Email the IRB tonight</code></td>
+<td>Today at 8:00 PM</td>
+</tr>
+<tr>
+<td><code>Review draft #work !high</code></td>
+<td>Work list, high priority</td>
+</tr>
+</tbody></table></div>
+<h2 id="how-calendar-syncing-works">How calendar syncing works</h2>
+<ul>
+<li>Dayline shows events from the calendars you switch on under <strong>Settings → Calendars</strong>, from a week back to two months ahead. Meetings you declined are hidden.</li>
+<li>A task you add to a connected calendar becomes a linked event. Edit the task and the event updates. Move or rename the event in Google Calendar or Outlook and the task follows. Delete the task and the event is removed a few seconds later, so <strong>Undo</strong> still works.</li>
+<li>Recurring tasks become recurring events.</li>
+<li>If you&#39;re offline or your sign-in has expired, changes wait and sync the next time you&#39;re connected.</li>
+<li><strong>Settings → Put timed tasks on my calendar</strong> adds every new task with a time automatically.</li>
+<li>Not connected? <strong>Add to calendar</strong> still opens Google Calendar or Outlook on the web with the event filled in, or gives you an <code>.ics</code> file.</li>
+</ul>
+<h2 id="reminders-on-iphone">Reminders on iPhone</h2>
+<p>A web app can&#39;t wake your phone on a schedule, so Dayline&#39;s own reminders only appear while it&#39;s open. It also keeps a count badge on its icon once notifications are on. For reminders you can rely on, add the task to Google Calendar or Outlook: the event carries your reminder, and those apps deliver it.</p>
+<h2 id="your-data">Your data</h2>
+<ul>
+<li>Tasks are stored on the device — not in GitHub and not on any server. Your phone and your computer each keep their own copy.</li>
+<li><strong>Settings → Back up tasks</strong> saves a file (on iPhone, choose <strong>Save to Files</strong>). <strong>Restore from backup</strong> loads it on any device.</li>
+<li>Calendar events travel directly between Google or Microsoft and your device.</li>
+</ul>
+<h2 id="updating-the-app">Updating the app</h2>
+<p>After you edit any file on GitHub, open <code>sw.js</code> and bump <code>VERSION</code> (for example to <code>dayline-v1.0.1</code>). Installed copies then download the update, and Dayline shows <strong>A new version is ready → Update</strong>.</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Google: <em>Error 400: redirect_uri_mismatch</em></td>
+<td>The redirect URI in Google Cloud must match <strong>Settings → Calendars</strong> exactly, including <code>https://</code> and the final <code>/</code>.</td>
+</tr>
+<tr>
+<td>Google: <em>Access blocked: Dayline has not completed the Google verification process</em></td>
+<td>Add your Gmail address under <strong>Audience → Test users</strong>.</td>
+</tr>
+<tr>
+<td>Outlook: <em>Need admin approval</em>, AADSTS65001 or AADSTS90094</td>
+<td>An administrator needs to click <strong>Grant admin consent</strong> (Step 4.5).</td>
+</tr>
+<tr>
+<td>Outlook: AADSTS50011</td>
+<td>The redirect URI doesn&#39;t match. It must be exactly your app address with the final <code>/</code>.</td>
+</tr>
+<tr>
+<td>Outlook: AADSTS9002326</td>
+<td>The redirect URI was added as <em>Web</em>. In Entra → <strong>Authentication</strong>, remove it and add it under <strong>Single-page application</strong>.</td>
+</tr>
+<tr>
+<td>Outlook: AADSTS50194</td>
+<td>Enter the <strong>Directory (tenant) ID</strong> in Settings.</td>
+</tr>
+<tr>
+<td>Outlook: AADSTS700016</td>
+<td>The client ID doesn&#39;t belong to that tenant. Check both IDs.</td>
+</tr>
+<tr>
+<td>A calendar pill says <strong>refresh</strong></td>
+<td>Tap it. Sign-ins expire (Google hourly, Microsoft daily).</td>
+</tr>
+<tr>
+<td>Changes to files don&#39;t show up</td>
+<td>Bump <code>VERSION</code> in <code>sw.js</code>, reopen Dayline and tap <strong>Update</strong>.</td>
+</tr>
+<tr>
+<td>Blank screen after signing in on iPhone</td>
+<td>Close Dayline from the app switcher and open it again.</td>
+</tr>
+</tbody></table></div>
+<h2 id="files">Files</h2>
+<ul>
+<li><code>index.html</code>, <code>css/</code>, <code>js/</code> — the app</li>
+<li><code>sw.js</code> — offline support</li>
+<li><code>manifest.webmanifest</code>, <code>icons/</code> — what makes it installable</li>
+<li><code>config.js</code> — your calendar client IDs (optional)</li>
+<li><code>help.html</code> — this guide, inside the app</li>
+</ul>
+<h2 id="privacy-and-security">Privacy and security</h2>
+<ul>
+<li>No server, no analytics, no third-party scripts. Calendar sign-in tokens stay on your device.</li>
+<li>Client IDs are public identifiers, so it&#39;s fine for them to be in a public repository. Never commit a client secret — Dayline doesn&#39;t use one.</li>
+<li>Google labels the browser-only sign-in method Dayline uses as a legacy option. If Google ever retires it, the Google connection would need a small server. The one-tap <strong>Add to Google Calendar</strong> links would keep working either way.</li>
+</ul>
+
+</main>
+</body>
+</html>

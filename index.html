@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self' https://www.googleapis.com https://oauth2.googleapis.com https://login.microsoftonline.com https://graph.microsoft.com; manifest-src 'self'; worker-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'" />
+    <title>Dayline</title>
+    <meta name="description" content="Your to-dos and your calendar on one timeline." />
+    <meta name="theme-color" content="#f6f4ef" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0e121c" media="(prefers-color-scheme: dark)" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Dayline" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="icons/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="icons/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+    <link rel="stylesheet" href="css/app.css" />
+    <script src="config.js"></script>
+    <script type="module" src="js/main.js"></script>
+  </head>
+  <body>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none" aria-hidden="true">
+      <symbol id="i-today" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="3.2" /><path d="M3.5 10h17M8 3v4M16 3v4" /><rect x="7.5" y="13" width="4" height="4" rx="1" fill="currentColor" stroke="none" /></symbol>
+      <symbol id="i-schedule" viewBox="0 0 24 24"><path d="M4 6h3M4 12h3M4 18h3" /><rect x="10" y="4" width="10" height="5" rx="1.6" /><rect x="10" y="11" width="10" height="9" rx="1.6" /></symbol>
+      <symbol id="i-upcoming" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="3.2" /><path d="M3.5 10h17M8 3v4M16 3v4M7.5 14h9M7.5 17.2h5" /></symbol>
+      <symbol id="i-lists" viewBox="0 0 24 24"><path d="M9.5 6.5h10.5M9.5 12h10.5M9.5 17.5h10.5" /><circle cx="5" cy="6.5" r="1.3" fill="currentColor" stroke="none" /><circle cx="5" cy="12" r="1.3" fill="currentColor" stroke="none" /><circle cx="5" cy="17.5" r="1.3" fill="currentColor" stroke="none" /></symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" /></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" /><path d="M20 20l-4.3-4.3" /></symbol>
+      <symbol id="i-settings" viewBox="0 0 24 24"><path d="M4 7.5h9M19 7.5h1M4 16.5h3M13 16.5h7" /><circle cx="16" cy="7.5" r="2.4" /><circle cx="10" cy="16.5" r="2.4" /></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.3 4.3L19 7" /></symbol>
+      <symbol id="i-chev-left" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" /></symbol>
+      <symbol id="i-chev-right" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" /></symbol>
+      <symbol id="i-chev-down" viewBox="0 0 24 24"><path d="M5.5 9l6.5 6.5L18.5 9" /></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11" /></symbol>
+      <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M9.5 7V4.5h5V7M6.5 7l1 13h9l1-13M10 11v5.5M14 11v5.5" /></symbol>
+      <symbol id="i-repeat" viewBox="0 0 24 24"><path d="M17 3.5l3 3-3 3M4 11.5v-2a3 3 0 013-3h13M7 20.5l-3-3 3-3M20 12.5v2a3 3 0 01-3 3H4" /></symbol>
+      <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 16.5v-5.5a6 6 0 1112 0v5.5l1.6 2H4.4l1.6-2zM10 21a2.2 2.2 0 004 0" /></symbol>
+      <symbol id="i-flag" viewBox="0 0 24 24"><path d="M5.5 21V4M5.5 4.5h11l-2.2 4.2 2.2 4.3h-11" /></symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" /><path d="M12 7.5V12l3 2" /></symbol>
+      <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="3.2" /><path d="M3.5 10h17M8 3v4M16 3v4" /></symbol>
+      <symbol id="i-cal-plus" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="3.2" /><path d="M3.5 10h17M8 3v4M16 3v4M12 12.5v5M9.5 15h5" /></symbol>
+      <symbol id="i-cal-check" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="3.2" /><path d="M3.5 10h17M8 3v4M16 3v4M9 15l2 2 4-4" /></symbol>
+      <symbol id="i-notes" viewBox="0 0 24 24"><path d="M5 6.5h14M5 11.5h14M5 16.5h9" /></symbol>
+      <symbol id="i-subtasks" viewBox="0 0 24 24"><path d="M4 6.2l1.6 1.6L8.4 5M4 12.7l1.6 1.6 2.8-2.8M11.5 6.5h8.5M11.5 13h8.5M11.5 19h8.5M4.5 19h3" /></symbol>
+      <symbol id="i-tag" viewBox="0 0 24 24"><path d="M3.5 12.3V4.5a1 1 0 011-1h7.8l8.2 8.2-8.8 8.8-8.2-8.2z" /><circle cx="8" cy="8" r="1.5" /></symbol>
+      <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 01-1 1H5a1 1 0 01-1-1V7a1 1 0 011-1h5" /></symbol>
+      <symbol id="i-sync" viewBox="0 0 24 24"><path d="M20 8.5A8 8 0 005.6 6M4 3.5v4h4M4 15.5A8 8 0 0018.4 18M20 20.5v-4h-4" /></symbol>
+      <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M11 3.5l1.8 4.9 4.9 1.8-4.9 1.8L11 16.9l-1.8-4.9-4.9-1.8 4.9-1.8L11 3.5zM18.5 14.5l.9 2.1 2.1.9-2.1.9-.9 2.1-.9-2.1-2.1-.9 2.1-.9.9-2.1z" /></symbol>
+      <symbol id="i-inbox" viewBox="0 0 24 24"><path d="M4 13.5L6.6 5h10.8L20 13.5v5.5a1 1 0 01-1 1H5a1 1 0 01-1-1v-5.5zM4 13.5h5l1 2.2h4l1-2.2h5" /></symbol>
+      <symbol id="i-video" viewBox="0 0 24 24"><rect x="3" y="6.5" width="12.5" height="11" rx="2.2" /><path d="M15.5 10.5l5-3v9l-5-3" /></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-6.1-6.5-11a6.5 6.5 0 1113 0c0 4.9-6.5 11-6.5 11z" /><circle cx="12" cy="10" r="2.3" /></symbol>
+      <symbol id="i-edit" viewBox="0 0 24 24"><path d="M4 20h4.2L19.5 8.7l-4.2-4.2L4 15.8V20zM13.8 6l4.2 4.2" /></symbol>
+      <symbol id="i-share" viewBox="0 0 24 24"><path d="M12 14.5V3.5M8 7.5l4-4 4 4M7 10.5H6a1.5 1.5 0 00-1.5 1.5v7A1.5 1.5 0 006 20.5h12a1.5 1.5 0 001.5-1.5v-7a1.5 1.5 0 00-1.5-1.5h-1" /></symbol>
+      <symbol id="i-add-home" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4" /><path d="M12 8.5v7M8.5 12h7" /></symbol>
+      <symbol id="i-dots" viewBox="0 0 24 24"><circle cx="5.5" cy="12" r="1.5" fill="currentColor" stroke="none" /><circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none" /><circle cx="18.5" cy="12" r="1.5" fill="currentColor" stroke="none" /></symbol>
+      <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14" /></symbol>
+      <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 20V9M7 14l5-5 5 5M5 4h14" /></symbol>
+      <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" /><path d="M12 11v5.2M12 7.8h.01" /></symbol>
+      <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8.5" y="8.5" width="11.5" height="11.5" rx="2.2" /><path d="M15.5 8.5V5.5a1.5 1.5 0 00-1.5-1.5H5.5A1.5 1.5 0 004 5.5V14a1.5 1.5 0 001.5 1.5h3" /></symbol>
+      <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 4l9 16H3L12 4zM12 10v4.2M12 17.2h.01" /></symbol>
+      <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" /></symbol>
+      <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6" /></symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" /><path d="M12 2.5v2M12 19.5v2M4.6 4.6L6 6M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4L6 18M18 6l1.4-1.4" /></symbol>
+      <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 005.7 0l3-3a4 4 0 00-5.7-5.7l-1 1M14 10a4 4 0 00-5.7 0l-3 3a4 4 0 005.7 5.7l1-1" /></symbol>
+      <symbol id="i-hash" viewBox="0 0 24 24"><path d="M5 9h15M4 15h15M10 4L8 20M16 4l-2 16" /></symbol>
+    </svg>
+
+    <header id="topbar" class="topbar"></header>
+    <main id="view" class="view" tabindex="-1"></main>
+
+    <nav id="tabbar" class="tabbar" aria-label="Main">
+      <button class="tab" data-action="go" data-view="today"><svg class="icon"><use href="#i-today" /></svg><span>Today</span></button>
+      <button class="tab" data-action="go" data-view="schedule"><svg class="icon"><use href="#i-schedule" /></svg><span>Schedule</span></button>
+      <button class="tab" data-action="go" data-view="upcoming"><svg class="icon"><use href="#i-upcoming" /></svg><span>Upcoming</span></button>
+      <button class="tab" data-action="go" data-view="lists"><svg class="icon"><use href="#i-lists" /></svg><span>Lists</span></button>
+    </nav>
+    <button id="fab" class="fab" data-action="quick-add" aria-label="Add task"><svg class="icon"><use href="#i-plus" /></svg></button>
+
+    <div id="sheet-root"></div>
+    <div id="toast-root" aria-live="polite"></div>
+    <noscript><p style="padding: 24px">Dayline needs JavaScript to run.</p></noscript>
+  </body>
+</html>
