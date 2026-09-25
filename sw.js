@@ -1,36 +1,21 @@
 // Dayline service worker: offline app shell + notification taps.
 // When you change any app file, bump VERSION so phones pick up the update.
-const VERSION = 'dayline-v1.0.0';
+const VERSION = 'dayline-v1.0.1';
 
 const CORE = [
   './',
   'index.html',
   'help.html',
-  'css/app.css',
+  'app.css',
+  'app.js',
   'config.js',
   'manifest.webmanifest',
-  'js/main.js',
-  'js/store.js',
-  'js/dates.js',
-  'js/tz.js',
-  'js/recur.js',
-  'js/parse.js',
-  'js/notify.js',
-  'js/calendar/index.js',
-  'js/calendar/oauth.js',
-  'js/calendar/links.js',
-  'js/calendar/google.js',
-  'js/calendar/outlook.js',
-  'js/ui/dom.js',
-  'js/ui/views.js',
-  'js/ui/schedule.js',
-  'js/ui/sheets.js',
-  'icons/icon-192.png',
-  'icons/icon-512.png',
-  'icons/maskable-512.png',
-  'icons/apple-touch-icon.png',
-  'icons/favicon.svg',
-  'icons/favicon-32.png',
+  'icon-192.png',
+  'icon-512.png',
+  'maskable-512.png',
+  'apple-touch-icon.png',
+  'favicon.svg',
+  'favicon-32.png',
 ];
 
 self.addEventListener('install', (event) => {

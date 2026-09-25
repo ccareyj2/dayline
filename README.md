@@ -20,8 +20,7 @@ GitHub Pages hosts Dayline for free at an `https://` address, which is what lets
 
 1. Sign in to (or create a free account at) [github.com](https://github.com).
 2. Click **+** (top right) → **New repository**. Name it `dayline`, choose **Public**, then **Create repository**.
-3. On the new repository page, click **uploading an existing file**. Unzip `dayline.zip` on your Mac, open the `dayline` folder, select **everything inside it** (`index.html`, `css`, `js`, `icons`, …) and drag it onto the page. When the upload finishes, click **Commit changes**.
-   *Drag the contents, not the folder itself, so `index.html` is at the top level of the repository.*
+3. On the new repository page, click **uploading an existing file**. Unzip `dayline.zip` on your Mac and open the `dayline` folder. It holds 14 files and no folders. Press **⌘A** to select them all, then drag them onto the page. When the upload finishes, click **Commit changes**.
 4. Go to **Settings → Pages**. Under **Build and deployment**, set **Source** to **Deploy from a branch**, then **Branch** to `main` and `/ (root)`. Click **Save**.
 5. After a minute, the Pages screen shows **Your site is live at `https://YOUR-USERNAME.github.io/dayline/`**. That's your app's address.
 
@@ -156,12 +155,13 @@ After you edit any file on GitHub, open `sw.js` and bump `VERSION` (for example 
 | A calendar pill says **refresh** | Tap it. Sign-ins expire (Google hourly, Microsoft daily). |
 | Changes to files don't show up | Bump `VERSION` in `sw.js`, reopen Dayline and tap **Update**. |
 | Blank screen after signing in on iPhone | Close Dayline from the app switcher and open it again. |
+| The page shows plain, unstyled text | Some files are missing. In your repository, use **Add file → Upload files** to upload all 14 files again, then **Commit changes**. |
 
 ## Files
 
-- `index.html`, `css/`, `js/` — the app
+- `index.html`, `app.js`, `app.css` — the app
 - `sw.js` — offline support
-- `manifest.webmanifest`, `icons/` — what makes it installable
+- `manifest.webmanifest` and the icon files — what make it installable
 - `config.js` — your calendar client IDs (optional)
 - `help.html` — this guide, inside the app
 

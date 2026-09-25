@@ -7,8 +7,8 @@
 <title>Dayline — Setup guide</title>
 <meta name="theme-color" content="#f6f4ef" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0e121c" media="(prefers-color-scheme: dark)">
-<link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <style>
 :root{--bg:#f6f4ef;--surface:#fff;--surface-2:#f0ede6;--text:#1a1d29;--text-2:#464b5c;--muted:#767b8b;--border:#e5e1d8;--accent:#e4572e;--accent-text:#bf3f18;--code:#efe9df;color-scheme:light dark}
 @media (prefers-color-scheme:dark){:root{--bg:#0e121c;--surface:#171c28;--surface-2:#1e2432;--text:#eceef3;--text-2:#bcc2cf;--muted:#8b92a4;--border:#283042;--accent:#ff7a50;--accent-text:#ff9a78;--code:#1e2432}}
@@ -63,8 +63,7 @@ a[id]:empty{display:block;scroll-margin-top:72px}
 <ol>
 <li>Sign in to (or create a free account at) <a target="_blank" rel="noopener" href="https://github.com">github.com</a>.</li>
 <li>Click <strong>+</strong> (top right) → <strong>New repository</strong>. Name it <code>dayline</code>, choose <strong>Public</strong>, then <strong>Create repository</strong>.</li>
-<li>On the new repository page, click <strong>uploading an existing file</strong>. Unzip <code>dayline.zip</code> on your Mac, open the <code>dayline</code> folder, select <strong>everything inside it</strong> (<code>index.html</code>, <code>css</code>, <code>js</code>, <code>icons</code>, …) and drag it onto the page. When the upload finishes, click <strong>Commit changes</strong>.
-<em>Drag the contents, not the folder itself, so <code>index.html</code> is at the top level of the repository.</em></li>
+<li>On the new repository page, click <strong>uploading an existing file</strong>. Unzip <code>dayline.zip</code> on your Mac and open the <code>dayline</code> folder. It holds 14 files and no folders. Press <strong>⌘A</strong> to select them all, then drag them onto the page. When the upload finishes, click <strong>Commit changes</strong>.</li>
 <li>Go to <strong>Settings → Pages</strong>. Under <strong>Build and deployment</strong>, set <strong>Source</strong> to <strong>Deploy from a branch</strong>, then <strong>Branch</strong> to <code>main</code> and <code>/ (root)</code>. Click <strong>Save</strong>.</li>
 <li>After a minute, the Pages screen shows <strong>Your site is live at <code>https://YOUR-USERNAME.github.io/dayline/</code></strong>. That&#39;s your app&#39;s address.</li>
 </ol>
@@ -288,12 +287,16 @@ https://www.googleapis.com/auth/calendar.calendarlist.readonly
 <td>Blank screen after signing in on iPhone</td>
 <td>Close Dayline from the app switcher and open it again.</td>
 </tr>
+<tr>
+<td>The page shows plain, unstyled text</td>
+<td>Some files are missing. In your repository, use <strong>Add file → Upload files</strong> to upload all 14 files again, then <strong>Commit changes</strong>.</td>
+</tr>
 </tbody></table></div>
 <h2 id="files">Files</h2>
 <ul>
-<li><code>index.html</code>, <code>css/</code>, <code>js/</code> — the app</li>
+<li><code>index.html</code>, <code>app.js</code>, <code>app.css</code> — the app</li>
 <li><code>sw.js</code> — offline support</li>
-<li><code>manifest.webmanifest</code>, <code>icons/</code> — what makes it installable</li>
+<li><code>manifest.webmanifest</code> and the icon files — what make it installable</li>
 <li><code>config.js</code> — your calendar client IDs (optional)</li>
 <li><code>help.html</code> — this guide, inside the app</li>
 </ul>
